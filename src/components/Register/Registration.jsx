@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './Register.css'
+import './Register.css';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   return (
-    <div className='main'>
+    <div className="main">
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         <div>
