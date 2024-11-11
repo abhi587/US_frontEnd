@@ -42,7 +42,7 @@ const Register = () => {
     if (!validate()) return;
 
     try {
-      const response = await axios.post('/api/register', formData);
+      const response = await axios.post('https://newecommerce-backend-1.onrender.com/register', formData);
       console.log(response.data);
       // Handle success (e.g., redirect to login page, show a success message, etc.)
     } catch (error) {
