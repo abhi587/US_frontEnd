@@ -42,7 +42,7 @@ const Register = () => {
     if (!validate()) return;
 
     try {
-      const response = await axios.post('https://newecommerce-backend-1.onrender.com/register', formData);
+      const response = await axios.post('/api/register', formData);
       console.log(response.data);
       // Handle success (e.g., redirect to login page, show a success message, etc.)
     } catch (error) {
@@ -52,56 +52,62 @@ const Register = () => {
   };
 
   return (
-    <div className="main">
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title</label>
-          <select name="title" value={formData.title} onChange={handleChange}>
-            <option value="">Select</option>
-            <option value="Mr">Mr</option>
-            <option value="Mrs">Mrs</option>
-            <option value="Miss">Miss</option>
-          </select>
-          {errors.title && <p>{errors.title}</p>}
-        </div>
-        <div>
-          <label>Name</label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
-          {errors.name && <p>{errors.name}</p>}
-        </div>
-        <div>
-          <label>Phone</label>
-          <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
-          {errors.phone && <p>{errors.phone}</p>}
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
-          {errors.email && <p>{errors.email}</p>}
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
-          {errors.password && <p>{errors.password}</p>}
-        </div>
-        <div>
-          <label>Street</label>
-          <input type="text" name="street" value={formData.street} onChange={handleChange} />
-          {errors.street && <p>{errors.street}</p>}
-        </div>
-        <div>
-          <label>City</label>
-          <input type="text" name="city" value={formData.city} onChange={handleChange} />
-          {errors.city && <p>{errors.city}</p>}
-        </div>
-        <div>
-          <label>Pincode</label>
-          <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} />
-          {errors.pincode && <p>{errors.pincode}</p>}
-        </div>
-        <button type="submit">Register</button>
-      </form>
+    <div className="container">
+      <div className="join-us">
+        <p>Join Us</p>
+        <button>About Us</button>
+      </div>
+      <div className="main">
+        <h2>Register Here</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Title</label>
+            <select name="title" value={formData.title} onChange={handleChange}>
+              <option value="">Select</option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+            </select>
+            {errors.title && <p>{errors.title}</p>}
+          </div>
+          <div>
+            <label>Name</label>
+            <input type="text" name="name" value={formData.name} onChange={handleChange} />
+            {errors.name && <p>{errors.name}</p>}
+          </div>
+          <div>
+            <label>Phone</label>
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
+            {errors.phone && <p>{errors.phone}</p>}
+          </div>
+          <div>
+            <label>Email</label>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+            {errors.email && <p>{errors.email}</p>}
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" name="password" value={formData.password} onChange={handleChange} />
+            {errors.password && <p>{errors.password}</p>}
+          </div>
+          <div>
+            <label>Street</label>
+            <input type="text" name="street" value={formData.street} onChange={handleChange} />
+            {errors.street && <p>{errors.street}</p>}
+          </div>
+          <div>
+            <label>City</label>
+            <input type="text" name="city" value={formData.city} onChange={handleChange} />
+            {errors.city && <p>{errors.city}</p>}
+          </div>
+          <div>
+            <label>Pincode</label>
+            <input type="text" name="pincode" value={formData.pincode} onChange={handleChange} />
+            {errors.pincode && <p>{errors.pincode}</p>}
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </div>
     </div>
   );
 };
