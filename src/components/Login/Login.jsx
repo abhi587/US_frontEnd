@@ -1,7 +1,7 @@
-// import React from 'react'
-import './Login.css'
-import axios from 'axios'
 import React, { useState } from 'react';
+import './Login.css';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -38,6 +38,8 @@ const Login = () => {
     try {
       const response = await axios.post('/api/login', { email, password });
       if (response.data.success) {
+        const { token } = response.data;
+        Cookies.set('authToken', token, { expires: 7, secure: true, sameSite: 'Strict' }); // store token in cookie
         setSuccess('Login successful');
         setError('');
         // Handle successful login (e.g., redirect, save token, etc.)
